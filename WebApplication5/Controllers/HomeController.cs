@@ -27,6 +27,7 @@ namespace WebApplication5.Controllers
         {
             if (ModelState.IsValid)
             {
+                Console.WriteLine("hello world");
                 // TODO: Email response to the party organizer
                 return View("Thanks", guestResponse);
             }
