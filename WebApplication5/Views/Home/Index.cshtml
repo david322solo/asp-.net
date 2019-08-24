@@ -1,6 +1,7 @@
-﻿
+﻿@model WebApplication5.Models.Product
 @{
-    Layout = null;
+    ViewBag.Title = "Product Name";
+Layout = "~/Views/_BasicLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,13 +12,8 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        @ViewBag.Greeting World (from the view)
-        <p>
-            we're going to have an exiting party
-            (To do: sell it better. Add pictures or something.)
-        </p>
-        @Html.ActionLink("RSVP Now", "RsvpForm")
+    <div> 
+        @Model.Name
     </div>
 </body>
 </html>

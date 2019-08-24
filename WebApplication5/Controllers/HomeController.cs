@@ -3,39 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows;
 using WebApplication5.Models;
 
 namespace WebApplication5.Controllers
 {
     public class HomeController : Controller
     {
+        Product myProduct = new Product
+        {
+            ProductID = 1,
+            Name = "Kayak",
+            Description = "A boat for one person",
+            Category = "Watersports",
+            Price = 275M
+        };
 
-        public ViewResult Index()
+        public ActionResult Index()
         {
-            int hour = DateTime.Now.Hour;
-            ViewBag.Greeting = hour < 12 ? "good morning" : "good afternoon";  
-            return View();
+            return View(myProduct);    
         }
 
-        [HttpGet]
-        public ViewResult RsvpForm()
+        public ActionResult NameAndPrice()
         {
-            return View();
+            return View(myProduct);
         }
-        [HttpPost]
-        public ViewResult RsvpForm(GuestResponse guestResponse)
+ 
+        public ActionResult DemoExpression()
         {
-            if (ModelState.IsValid)
-            {
-                Console.WriteLine("hello world");
-                // TODO: Email response to the party organizer
-                return View("Thanks", guestResponse);
-            }
-            else
-            {
-                // there is a validation error
-                return View();
-            }
+            ViewBag.ProductCount = 1;
+            ViewBag.ExpressShip = true;
+            ViewBag.ApplyDiscount = false;
+            ViewBag.Supplier = null;
+            return View(myProduct);
         }
+
     }
 }

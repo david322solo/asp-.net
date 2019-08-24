@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -124,7 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GuestResponse.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,10 +157,12 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\RsvpForm.cshtml" />
     <Content Include="Views\web.config" />
-    <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\_BasicLayout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\NameAndPrice.cshtml" />
+    <Content Include="Views\Home\DemoExpression.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
