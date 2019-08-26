@@ -5,38 +5,27 @@ using System.Web;
 using System.Web.Mvc;
 using System.Windows;
 using WebApplication5.Models;
-
+using Ninject;
 namespace WebApplication5.Controllers
 {
     public class HomeController : Controller
     {
-        Product myProduct = new Product
+        private Product[] products = {
+            new Product {Name = "Kayak", Category = "Watersports", Price = 275M},
+            new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95M},
+            new Product {Name = "Soccer ball", Category = "Soccer", Price = 19.50M},
+            new Product {Name = "Corner flag", Category = "Soccer", Price = 34.95M}
+            };
+        private IValueCalculator calc;
+        public HomeController(IValueCalculator calcParam)
         {
-            ProductID = 1,
-            Name = "Kayak",
-            Description = "A boat for one person",
-            Category = "Watersports",
-            Price = 275M
-        };
-
+            calc = calcParam;
+        }
         public ActionResult Index()
         {
-            return View(myProduct);    
+            ShoppingCart cart = new ShoppingCart(calc) { Products = products };
+            decimal totalValue = cart.CalculateProductTotal();
+            return View(totalValue);
         }
-
-        public ActionResult NameAndPrice()
-        {
-            return View(myProduct);
-        }
- 
-        public ActionResult DemoExpression()
-        {
-            ViewBag.ProductCount = 1;
-            ViewBag.ExpressShip = true;
-            ViewBag.ApplyDiscount = false;
-            ViewBag.Supplier = null;
-            return View(myProduct);
-        }
-
     }
 }

@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -125,7 +128,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\Discount.cs" />
+    <Compile Include="Models\FlexibleDiscountHelper.cs" />
+    <Compile Include="Models\IValueCalculator.cs" />
+    <Compile Include="Models\LinqValueCalculator.cs" />
+    <Compile Include="Models\MinimumDiscountHelper.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,10 +169,6 @@
     </Content>
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\_BasicLayout.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\NameAndPrice.cshtml" />
-    <Content Include="Views\Home\DemoExpression.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
